@@ -117,125 +117,154 @@ window.onclick = function(event) {
 
   <body >
 
-   
-   <?php include_once"header.php"; ?>
+    <?php include_once"header.php"; ?>
+    
+<div class="main-container">
 
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">News Feed</h3>
+      <nav class="navbar navbar-default">
+            <div class="container">
+              <!-- <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div> -->
+              <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                  <li><a href="wall.php">Home</a></li>
+                  <li><a href="profile.php">Profile</a></li>
+                  <li><a href="members.php">Members</a></li>
+                  <li><a href="friend-request.php">Friend Request</a></li>
+                  <li><a href="message.php">Message</a></li>
+                  <li><a href="photos.php">Photos</a></li>
+                  <li><a href="logout.php">Logout</a></li>   </ul>
+              </div><!--/.nav-collapse -->
+            </div>
+      </nav>
+
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">News Feed</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                      <textarea class="form-control" placeholder="What's on your mind?" id="txta"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-default" id="submit">Submit</button>
+                    <div class="pull-right">
+                      <div class="btn-toolbar">
+                      <input type="button" class="btn btn-primary btn-large" id="btnUploadFile" name="btnUploadFile" onclick="ShowUploadDialog();" value="upload"/>
+              <input type="hidden" id="imgSmall" name="imgSmall" class="CssTextBox form-control" maxlength="250" displayfieldname="Image" placeholder="Image" />
+                          <div id="msg" style="text-align: center;"> </div>
+              <input type="hidden" id="email" value="<?php echo $email?>" />
+                      </div>
+                    </div>
+                </div>
               </div>
-              <div class="panel-body">
-                  <div class="form-group">
-                    <textarea class="form-control" placeholder="What's on your mind?" id="txta"></textarea>
+              <div class="panel panel-default post">
+        <?php
+          $query="SELECT * FROM `post` WHERE status ='TRUE' ORDER BY `id` DESC ";
+          $result=$conn->query($query);   
+          while($row=mysqli_fetch_assoc($result))
+              {
+          $query1="SELECT `fname`,`image` FROM `register` WHERE email ='". $row['email']."'";
+          $result1=$conn->query($query1); 
+          while($row1=mysqli_fetch_assoc($result1))
+          {
+            $profile=$row1['image'];
+            $name=$row1['fname'];
+          }
+          $id=$row['id'];
+        echo'<div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-2">
+                      <a href="#" class="post-avatar thumbnail"><img src="'.$profile.'" alt=""><div class="text-center">'.$name.'</div></a>
+                      <div class="likes text-center"> '.$row['like'].' Like</div>
+                    </div>
+            
+                    <div class="col-sm-10">
+              <div class="bubble"style="margin-bottom: 7px;">
+                        <div class="pointer">
+                          <p>'.$row['text'].'</p>
+                        </div>
+                        <div class="pointer-border"></div>
+                      </div>
+            <div class="cms">
+                  <div class="cms-photo" >
+                      <img src="'.$row['image'].'" class="img-responsive" style="width:100%;height:30%">
                   </div>
-                  <button type="submit" class="btn btn-default" id="submit">Submit</button>
-                  <div class="pull-right">
-                    <div class="btn-toolbar">
-                     <input type="button" class="btn btn-primary btn-large" id="btnUploadFile" name="btnUploadFile" onclick="ShowUploadDialog();" value="upload"/>
-					  <input type="hidden" id="imgSmall" name="imgSmall" class="CssTextBox form-control" maxlength="250" displayfieldname="Image" placeholder="Image" />
-                        <div id="msg" style="text-align: center;"> </div>
-						<input type="hidden" id="email" value="<?php echo $email?>" />
+              </div>
+                      
+                      <p class="post-actions">  <a href="like.php?id='.$row['id'].'">Like</a> <a href="#"></a></p>
+                      <div class="comment-form">
+                        <form action="comment.php" method="post" class="form-inline">
+              <input type="hidden" name="id" value="'.$row['id'].'">
+              <input type="hidden" name="image" value="'.$email.'">
+                          <div class="form-group">
+                            <input type="text" name="comment" class="form-control" placeholder="Enter comment"><br>
+                          </div>
+              
+                          <button type="submit" class="btn btn-default">Comment</button>
+                        </form>
+                      </div>
+                      <div class="clearfix"></div>
+              <div class="comments">';
+              
+            $query2="SELECT * FROM `comment` as c,`register` as r WHERE c.id= $id and c.email = r.email ORDER BY `count` DESC ";
+            $result2=$conn->query($query2);   
+          while($row2=mysqli_fetch_assoc($result2))
+              { 
+            
+                      
+                        echo'<div class="comment">
+                          <a href="seeprofile.php?mail='.$row2['email'].'" class="comment-avatar pull-left"><img src="'.$row2['image'].'" alt=""></a>
+                          <div class="comment-text">
+                            <p>'.$row2['comment'].'.</p>
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+                  ';
+                      
+        }
+        echo' </div>
                     </div>
                   </div>
+                </div>';
+        }
+        ?>
+                
               </div>
-            </div>
-            <div class="panel panel-default post">
-			<?php
-			  $query="SELECT * FROM `post` WHERE status ='TRUE' ORDER BY `id` DESC ";
-			  $result=$conn->query($query);   
-         while($row=mysqli_fetch_assoc($result))
-            {
-				$query1="SELECT `fname`,`image` FROM `register` WHERE email ='". $row['email']."'";
-			  $result1=$conn->query($query1); 
-			   while($row1=mysqli_fetch_assoc($result1))
-			   {
-				   $profile=$row1['image'];
-				   $name=$row1['fname'];
-			   }
-			   $id=$row['id'];
-			 echo'<div class="panel-body">
-                 <div class="row">
-                   <div class="col-sm-2">
-                     <a href="#" class="post-avatar thumbnail"><img src="'.$profile.'" alt=""><div class="text-center">'.$name.'</div></a>
-                     <div class="likes text-center"> '.$row['like'].' Like</div>
-                   </div>
-				   
-                   <div class="col-sm-10">
-				    <div class="bubble"style="margin-bottom: 7px;">
-                       <div class="pointer">
-                         <p>'.$row['text'].'</p>
-                       </div>
-                       <div class="pointer-border"></div>
-                     </div>
-				   <div class="cms">
-                <div class="cms-photo" >
-                    <img src="'.$row['image'].'" class="img-responsive" style="width:100%;height:30%">
-                </div>
-            </div>
-                    
-                     <p class="post-actions">  <a href="like.php?id='.$row['id'].'">Like</a> <a href="#"></a></p>
-                     <div class="comment-form">
-                       <form action="comment.php" method="post" class="form-inline">
-					   <input type="hidden" name="id" value="'.$row['id'].'">
-					   <input type="hidden" name="image" value="'.$email.'">
-                        <div class="form-group">
-                          <input type="text" name="comment" class="form-control" placeholder="Enter comment"><br>
-                        </div>
-						
-                        <button type="submit" class="btn btn-default">Comment</button>
-                      </form>
-                     </div>
-                     <div class="clearfix"></div>
-					  <div class="comments">';
-					  
-					$query2="SELECT * FROM `comment` as c,`register` as r WHERE c.id= $id and c.email = r.email ORDER BY `count` DESC ";
-				   $result2=$conn->query($query2);   
-         while($row2=mysqli_fetch_assoc($result2))
-            { 
-					 
-                    
-                       echo'<div class="comment">
-                        <a href="seeprofile.php?mail='.$row2['email'].'" class="comment-avatar pull-left"><img src="'.$row2['image'].'" alt=""></a>
-                         <div class="comment-text">
-                          <p>'.$row2['comment'].'.</p>
-                         </div>
-                       </div>
-                       <div class="clearfix"></div>
-                 ';
-                    
-			}
-			echo' </div>
-                   </div>
-                 </div>
-              </div>';
-			}
-			?>
-              
-            </div>
-			</div>
+        </div>
+            
           
+            
+        </div>
+        </div>
         
-          <div class="col-md-4">
-		  <?php include_once"my-friend.php"; ?>
-       <?php include_once"allmember.php"; ?>
-          </div>
-		  </div>
-		  </div>
-       
-      
-	 
-    </section>
+        
+
+      </section>
+
+      <div class="col-md-4">
+      <?php include_once"my-friend.php"; ?>
+      <?php include_once"allmember.php"; ?>
+      </div>
+  </div>
+   
+   
 
 
-    <footer>
+    <!-- <footer>
       <div class="footer">
         <p>GIFT Social Media  &copy 2023 Satyajit Debasis Priyaranjan</p>
       </div>
-    </footer>
+    </footer> -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

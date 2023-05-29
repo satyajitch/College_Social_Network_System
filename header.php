@@ -6,31 +6,29 @@
 
 ?>
   
-  <header >
+  <header style="height: 66px;width: 100vw">
  
-    <div class="container"  >
-	    <div class="row" style = "display: flex;">
-	      <div class="col-md-4">
-          <!-- <img src="img/gift-logo.png" alt="GIFT Logo" style= "display : inline-block; height: 80px; width: 80px"> -->
+    <div class="container" style="    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 116px" >
+	    
+	      <div class="" style="display : flex;align-items:center; ">
+          <img src="img/gift-logo.png" alt="GIFT Logo" style= "height: 50px; width: 50px;">
 	        <a href="wall.php"> <h6 style="color:white;  font-family:monospace; font-size: 31px"><b>GIFT Social Network</b></h6> </a>
 	      </div>
-        <div class="col-md-4">
-	      </div>
-        <div class="col-md-4">
-	        <a href="profile.php"> <h6 style="color: pink; text-align: center; font-family:monospace; font-size: 31px">
-            Hi <?php
-              $row = mysqli_fetch_assoc($result);
-               echo $row['fname'];
-            ?>!
-</h6> </a>
-	      </div>
- <!-- <div class="col-md-8">
-    
-	  </div> -->
-      </div>
+  
+        <div class="navbar-user-profile" style="margin-left: 716px">
+	        <!-- <a href="profile.php">
+          </a> -->
+
+          <div class="user-icon" style="width:50px;height:50px;border-radius:50%;background:lightgrey"></div>
+	
+    </div>
 	</div>
   </header>
- <nav class="navbar navbar-default">
+ <!-- <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -49,6 +47,6 @@
 				 		<li><a href="message.php">Message</a></li>
             <li><a href="photos.php">Photos</a></li>
 	          <li><a href="logout.php">Logout</a></li>   </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
-    </nav>
+    </nav> -->

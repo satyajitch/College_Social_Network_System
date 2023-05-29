@@ -1,4 +1,26 @@
- <div class="panel panel-default friends">
+ <style>
+	a{
+		color:#050505
+	}
+	a:hover{
+		text-decoration:none;
+		color:#050505;
+	}
+	.my-friend-list ul a li{
+		width: 100%;
+		margin-bottom: 5px;
+		padding: 5px;
+		border-radius: 6px;
+		list-style: none;
+	}
+	.my-friend-list ul{
+		padding: 0;
+	}
+	.my-friend-list ul a li:hover{
+		background:#EBEDF0;
+	}
+ </style>
+ <div class="panel panel-default my-friend-list">
               <div class="panel-heading">
                 <h3 class="panel-title">My Friends</h3>
               </div>
@@ -19,13 +41,16 @@
 										  $name=$fname.' '.$lname;
 										  $image=$row1['image'];
 									  }				
-					 echo'<li><a href="seeprofile.php?mail='.$sender.'" class="thumbnail"><img src='.$image.' alt="">'.$name.'</a></li>';
+					 echo'<a href="seeprofile.php?mail='.$sender.'" class="" style=""><li class=""><img src='.$image.' alt="" style="margin-right: 7px;
+					 width: 40px;
+					 height: 40px;
+					 border-radius: 50%">'.$name.'</li></a>';
 					 
 				  }
 				
 				 ?>
                 </ul>
                 <div class="clearfix"></div>
-                <a class="btn btn-primary" href="members1.php">View All</a>
+                <!-- <a class="btn btn-primary" href="members1.php">View All</a> -->
               </div>
             </div>
