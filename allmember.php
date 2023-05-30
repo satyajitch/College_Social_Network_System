@@ -17,14 +17,21 @@
 		padding: 0;
 	}
 	.all-members ul a li:hover{
-		background:#EBEDF0;
+		background:#e4e6eb;
 	}
  </style>
  <div class="panel panel-default all-members">
-              <div class="panel-heading">
-                <h3 class="panel-title">All Members</h3>
-              </div>
-              <div class="panel-body">
+ <div class="friend-list-heading" style="display: flex;
+														align-items: center;
+														justify-content: space-between;
+														padding: 5px 15px;
+														}">
+				<div class="heading" style="font-size: 1.6rem;
+											color: #65676b;
+											letter-spacing: 0.51px;">All Members</div>
+				<div class="options" style="color: #65676b;"><i class="fa-solid fa-ellipsis"></i></div>
+			  </div>
+              <div class="panel-body" style="padding:0 15px">
                 <ul>
 				<?php
 				
@@ -44,8 +51,8 @@
 										  $image=$row1['image'];
 									  			
 					 echo'<a href="seeprofile.php?mail='.$email.'" class=""><li><img src='.$image.' alt="pimage" style="margin-right: 7px;
-					 width: 40px;
-					 height: 40px;
+					 width: 35px;
+					 height: 35px;
 					 border-radius: 50%"> '.$name.'</li></a>';
 					
 									  }
@@ -54,6 +61,6 @@
 				 ?>
                 </ul>
                 <div class="clearfix"></div>
-                <a class="btn btn-primary" href="members1.php">View All Friends</a>
+                <!-- <a class="btn btn-primary" href="members1.php">View All Friends</a> -->
               </div>
             </div>

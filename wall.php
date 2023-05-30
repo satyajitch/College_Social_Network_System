@@ -59,6 +59,224 @@ else
     text-decoration: none;
     display: block;
 }
+.main-container{
+  padding: 14px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #f0f2f5;
+  height: calc(100vh - 66px);
+  overflow: auto;
+}
+/* aside section  */
+.aside-section{
+  width:24%;
+  position: sticky;
+  top: 0;
+  /* background: lightslategray; */
+}
+.options-container{
+  width:100%;
+  /* background:lightblue; */
+}
+.ul-option{
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  font-family:sans-serif;
+}
+.ul-option a li{
+  /* background: lightcoral; */
+  height: 45px;
+  display: flex;
+  align-items: center;
+  margin-top: 3px;
+  border-radius: 12px;
+  padding-left: 9px;
+}
+.ul-option a li:hover{
+  color:#1c7cf6;
+}
+.ul-option a li:hover i{
+  color:#1c7cf6;
+}
+.ul-option a li i{
+  margin-right:13px;
+  color:grey;
+}
+.ul-option a li:hover{
+  background:#EBEDF0;
+}
+#main-section{
+  width:50%;
+}
+.user-spec{
+  width: 100%;
+  height: 55px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  border: 1px solid #e1e1e1;
+  background: #f4f2f2;
+}
+.user-logo{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.col-md-4{
+  margin: 0;
+  padding: 0;
+  width: 24%;
+}
+
+
+
+
+/* main section  */
+/* #main-section .container{
+  width:100%
+}
+#main-section .container .col-md-8{
+  width:100%
+} */
+#main-section{
+  background: #f0f2f5;
+}
+.panel-bodyy{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  margin-bottom: 11px;
+  background:white;
+}
+.col-sm-2 a img{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  margin-right: 10px;
+}
+.col-sm-2 a{
+  border:none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  background:unset;
+}
+.col-sm-2{
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 69px;
+}
+.col-sm-10{
+  width:100% !important;
+}
+.panel-default {
+    border: none !important;
+    background: #f0f2f5 !important;
+}
+.user-txt{
+  border:none !important;
+}
+.pointer p{
+  text-align:justify;
+}
+.comment-send-btn{
+  color:#0762f0;
+  border: none;
+  background: none;
+  position: absolute;
+  top: 6px;
+  right: 9px;
+}
+.comment-form{
+  display:flex;
+  align-items:center;
+  margin: 8px 0;
+}
+.form-group .form-control{
+  border-radius: 20px;
+  background: #f0f2f5;
+  border: none;
+  background: #f0f2f5;
+  border-radius: 10px;
+}
+.comment-form .user-img{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: lightblue;
+  margin-right: 7px;
+}
+.form-inline:active{
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+.comment-send-box{
+  border-radius: 20px;
+  height: 34px;
+  border: none;
+  background: #f0f2f5;
+  padding: 0 39px 0 15px;
+}
+.comment-send-box:focus{
+  outline:none;
+  border:none;
+}
+.single-comment{
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.single-comment a{
+  margin-right: 5px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.single-comment a img{
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+.comment-text{
+  height: 34px;
+  min-width: 200px;
+  background-color: #f0f2f5;
+  border-radius: 10px;
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  height: auto;
+  justify-content: center;
+  color: #050505;
+}
+.comment-text .user{
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+.post-actions a i{
+  margin-right:4px;
+  color:lightgrey;
+}
+.post-actions a{
+  color:#aaaaaa;
+}
+.post-actions a:hover{
+  color:#aaaaaa;
+}
+/* .post-actions a :hover i{
+  color:#0762f0;
+} */
 </style>
 <html lang="en">
   <head>
@@ -79,6 +297,9 @@ else
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+
+    <script src="https://kit.fontawesome.com/e85e142282.js" crossorigin="anonymous"></script>
 	
 	
 	
@@ -121,111 +342,296 @@ window.onclick = function(event) {
     
 <div class="main-container">
 
-      <nav class="navbar navbar-default">
-            <div class="container">
-              <!-- <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-              </div> -->
-              <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                  <li><a href="wall.php">Home</a></li>
-                  <li><a href="profile.php">Profile</a></li>
-                  <li><a href="members.php">Members</a></li>
-                  <li><a href="friend-request.php">Friend Request</a></li>
-                  <li><a href="message.php">Message</a></li>
-                  <li><a href="photos.php">Photos</a></li>
-                  <li><a href="logout.php">Logout</a></li>   </ul>
-              </div><!--/.nav-collapse -->
-            </div>
-      </nav>
+      <div class="aside-section">
+        <div class="options-container">
+          <div class="user-spec">
+          <?php
+              $query1="SELECT `fname`,`lname`,`image` FROM `register` WHERE email ='". $_SESSION["email"]."'";
+              $result1=$conn->query($query1); 
+              while($row1=mysqli_fetch_assoc($result1))
+              {
+                $profile=$row1['image'];
+                $fname=$row1['fname'];
+                $lname=$row1['lname'];
+              }
+              echo '<div class="user-logo">
+                      <img src="'.$profile.'" alt="" style="width: 100%;border-radius: 50%;">
+                    </div>
+                    <div class="user-name">
+                      '.$fname.' '.$lname.'
+                    </div>
+            </div>'
+            ?>
+            
+          <ul class="ul-option">
+            <a href="wall.php">
+                    <li>
+                    <i class="fa-solid fa-house"></i>Home
+                  </li>
+                </a>
 
-      <section>
-        <div class="container">
+
+                <a href="profile.php">
+                    <li>
+                    <i class="fa-solid fa-user"></i>Profile
+                  </li>
+                </a>
+
+
+                <a href="friend-request.php">
+                    <li>
+                    <i class="fa-solid fa-bell"></i>Request
+                  </li>
+                </a>
+
+
+                <a href="message.php">
+                    <li>
+                    <i class="fa-solid fa-message"></i>Message
+                  </li>
+                </a>
+
+
+                <a href="members.php">
+                    <li>
+                    <i class="fa-solid fa-user-group"></i>Friend
+                  </li>
+                </a>
+
+                
+                <a href="members.php">
+                    <li>
+                    <i class="fa-solid fa-users"></i>Members
+                  </li>
+                </a>
+
+                <a href="photos.php">
+                    <li>
+                    <i class="fa-solid fa-image"></i>Posts
+                  </li>
+                </a>
+
+
+                <a href="">
+                    <li>
+                    <i class="fa-solid fa-gear"></i>Setting
+                  </li>
+                </a>
+
+
+                <a href="logout.php">
+                    <li>
+                    <i class="fa-solid fa-right-from-bracket"></i>Logout
+                  </li> 
+                </a>
+          </ul>
+ 
+        </div>
+
+
+      </div>
+
+      <section id="main-section">
+        <!-- <div class="container">
           <div class="row">
-            <div class="col-md-8">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h3 class="panel-title">News Feed</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="form-group">
-                      <textarea class="form-control" placeholder="What's on your mind?" id="txta"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-default" id="submit">Submit</button>
-                    <div class="pull-right">
+            <div class="col-md-8"> -->
+              <div class="feed-container">
+
+                <!-- <div class="feed-heading">
+                  <h3 class="feed-title"></h3>
+                </div> -->
+                
+                <div class="panel-body" style=" padding: 15px;
+                                                background: white;
+                                                margin-bottom: 11px;
+                                                display: flex;
+                                                border-radius: 8px;
+                                                flex-direction: column;">
+                          <div class="user-post-section"      style="display:flex;
+                          align-items: center;
+                          width: 100%;
+                          margin-bottom:5px">
+                              <?php
+                                  $query1="SELECT `fname`,`image` FROM `register` WHERE email ='". $_SESSION["email"]."'";
+                                  $result1=$conn->query($query1); 
+                                  while($row1=mysqli_fetch_assoc($result1))
+                                  {
+                                    $profile=$row1['image'];
+                                    $fname=$row1['fname'];
+                                  }
+                                  $sign="'";
+                                  echo '<div class="feed-user" style="width: 40px;
+                                                                height: 40px;
+                                                                border-radius: 50%;
+                                                                margin-right:5px">
+                                          <img src="'.$profile.'" alt="" style="width:100%;height:100%;border-radius:inherit">
+                                        </div>
+                                        
+                                            <div class="feed-input" style="width:94%; ">
+                                  <textarea class="form-control" placeholder="What'.$sign.'s on your mind, '.$fname.'?" id="txta"></textarea>
+                                </div>
+                                        
+                                        '?>
+                      
+                            
+
+                          </div>
+                <style>
+                  .form-control{
+                    background: #f0f2f5;
+                    border: none;
+                    outline: none;
+                    box-shadow: none;
+                    border-radius: 7px;
+                  }
+                  .form-control:focus{
+                    border:none;
+                    box-shadow:none;
+                    outline:none;
+                  }
+                </style>
+
+                <div class="post-submit-btn" style="display: flex;
+                                              align-items: center;
+                                              justify-content: flex-end;">
+
+                    <div class="pull-right" style="margin-right:8px">
                       <div class="btn-toolbar">
-                      <input type="button" class="btn btn-primary btn-large" id="btnUploadFile" name="btnUploadFile" onclick="ShowUploadDialog();" value="upload"/>
-              <input type="hidden" id="imgSmall" name="imgSmall" class="CssTextBox form-control" maxlength="250" displayfieldname="Image" placeholder="Image" />
-                          <div id="msg" style="text-align: center;"> </div>
-              <input type="hidden" id="email" value="<?php echo $email?>" />
-                      </div>
+                      
+                        <button class="btn btn-primary btn-large" id="btnUploadFile" name="btnUploadFile" onclick="ShowUploadDialog();" 
+                        style="background: none;
+                              color: #aaaaaa;
+                              border: none;
+                              outline: none;
+                              padding: 0;">
+                        <i class="fa-solid fa-image"></i>
+                      </button>
+                      <input type="hidden" id="imgSmall" name="imgSmall" class="CssTextBox form-control" maxlength="2500" displayfieldname="Image" placeholder="Image">
+                      <div id="msg" style="text-align: center;"> </div>
+                      <input type="hidden" id="email" value="<?php echo $email?>">
                     </div>
+                  </div>
+
+
+                  <div class="pull-right" style="margin-right:8px">
+                      <div class="btn-toolbar">
+                      
+                        <button class="btn btn-primary btn-large" id="btnUploadFile" name="btnUploadFile" onclick="ShowUploadDialog();" 
+                        style="background: none;
+                              color: #aaaaaa;
+                              border: none;
+                              outline: none;
+                              padding: 0;">
+                        <i class="fa-solid fa-paperclip"></i>
+                      </button>
+                      <input type="hidden" id="imgSmall" name="imgSmall" class="CssTextBox form-control" maxlength="2500" displayfieldname="Image" placeholder="Image">
+                      <div id="msg" style="text-align: center;"> </div>
+                      <input type="hidden" id="email" value="<?php echo $email?>">
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-default" id="submit" style="width: 64px;
+                                                                                    height: 30px;
+                                                                                    display: flex;
+                                                                                    align-items: center;
+                                                                                    justify-content: center;
+                                                                                    color: white;
+                                                                                    background: #0762f0;">Post</button>
                 </div>
-              </div>
-              <div class="panel panel-default post">
+
+                      
+                 </div>
+            </div>
+
+
+
+        <div class="panel panel-default post">
         <?php
+        $query1="SELECT `image` FROM `register` WHERE email ='". $_SESSION["email"]."'";
+        $result1=$conn->query($query1); 
+        while($row1=mysqli_fetch_assoc($result1))
+        {
+          $user=$row1['image'];
+        }
           $query="SELECT * FROM `post` WHERE status ='TRUE' ORDER BY `id` DESC ";
           $result=$conn->query($query);   
           while($row=mysqli_fetch_assoc($result))
               {
-          $query1="SELECT `fname`,`image` FROM `register` WHERE email ='". $row['email']."'";
+          $query1="SELECT `fname`,`lname`,`image` FROM `register` WHERE email ='". $row['email']."'";
           $result1=$conn->query($query1); 
           while($row1=mysqli_fetch_assoc($result1))
           {
             $profile=$row1['image'];
-            $name=$row1['fname'];
+            $fname=$row1['fname'];
+            $lname=$row1['lname'];
           }
           $id=$row['id'];
-        echo'<div class="panel-body">
-                  <div class="row">
-                    <div class="col-sm-2">
-                      <a href="#" class="post-avatar thumbnail"><img src="'.$profile.'" alt=""><div class="text-center">'.$name.'</div></a>
-                      <div class="likes text-center"> '.$row['like'].' Like</div>
-                    </div>
-            
-                    <div class="col-sm-10">
-              <div class="bubble"style="margin-bottom: 7px;">
-                        <div class="pointer">
-                          <p>'.$row['text'].'</p>
-                        </div>
-                        <div class="pointer-border"></div>
-                      </div>
-            <div class="cms">
-                  <div class="cms-photo" >
-                      <img src="'.$row['image'].'" class="img-responsive" style="width:100%;height:30%">
-                  </div>
-              </div>
-                      
-                      <p class="post-actions">  <a href="like.php?id='.$row['id'].'">Like</a> <a href="#"></a></p>
-                      <div class="comment-form">
-                        <form action="comment.php" method="post" class="form-inline">
-              <input type="hidden" name="id" value="'.$row['id'].'">
-              <input type="hidden" name="image" value="'.$email.'">
-                          <div class="form-group">
-                            <input type="text" name="comment" class="form-control" placeholder="Enter comment"><br>
-                          </div>
-              
-                          <button type="submit" class="btn btn-default">Comment</button>
-                        </form>
-                      </div>
-                      <div class="clearfix"></div>
-              <div class="comments">';
-              
+          $temp;
+
+  
+$isConditionTrue = $row['image']; // Replace this with your actual condition
+
+echo '<div class="panel-bodyy">
+    <div class="col-sm-2">
+        <a href="#" class="post-avatar thumbnail"><img src="'.$profile.'" alt="">
+        <div class="text-center">'.$fname." ".$lname.'</div></a>
+    </div>
+
+    <div class="col-sm-10">
+        <div class="user-txt" style="margin-bottom: 7px; width: 100%">
+            <div class="pointer">
+                <p>'.$row['text'].'</p>
+            </div>
+        </div>';
+
+if ($isConditionTrue) {
+    echo '<div class="cms" style="border-radius: 12px; margin-bottom:8px;">
+            <img src="'.$row['image'].'" class="img-responsive" style="width: 100%; height: 30%; border-radius:inherit;">
+          </div>';
+}
+
+echo '<hr style="margin:0">
+<p class="post-actions" style="display: flex;align-items: center;justify-content: space-around;">
+  <a href="like.php?id='.$row['id'].'"><i class="fa-solid fa-thumbs-up"></i>like</a>
+  <a href=""><i class="fa-solid fa-comment"></i>comment</a>
+  <a href=""><i class="fa-solid fa-share-nodes"></i>share</a>
+</p>
+
+
+<hr style="margin:0">
+    <div class="comment-form">
+    <div class="user-img">  
+    <img src="'.$user.'" alt="" style="width: 100%;
+    height: 100%;
+    border-radius: inherit;">
+  </div>
+        <form action="comment.php" method="post" class="form-inline" style="position:relative;width:100%;">
+            <input type="hidden" name="id" value="'.$row['id'].'">
+            <input type="hidden" name="image" value="'.$email.'">
+            <div class="form-group" style="width:100%">
+                <input type="text" name="comment" class="comment-send-box" placeholder="Enter a comment here..." style="border-radius:20px" required>
+            </div>
+            <button type="submit" class="comment-send-btn">
+            <i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+    </div>
+    <div class="clearfix"></div>
+<div class="comments">';
+
+
+
+
             $query2="SELECT * FROM `comment` as c,`register` as r WHERE c.id= $id and c.email = r.email ORDER BY `count` DESC ";
             $result2=$conn->query($query2);   
           while($row2=mysqli_fetch_assoc($result2))
               { 
             
                       
-                        echo'<div class="comment">
+                        echo'<div class="single-comment">
                           <a href="seeprofile.php?mail='.$row2['email'].'" class="comment-avatar pull-left"><img src="'.$row2['image'].'" alt=""></a>
                           <div class="comment-text">
-                            <p>'.$row2['comment'].'.</p>
+                          <div class="user">'.$row2['fname']." ".$row2['lname'].'</div>
+                          <div class="">'.$row2['comment'].'</div>
                           </div>
                         </div>
                         <div class="clearfix"></div>
@@ -234,24 +640,24 @@ window.onclick = function(event) {
         }
         echo' </div>
                     </div>
-                  </div>
+                  
                 </div>';
         }
         ?>
                 
               </div>
-        </div>
+        <!-- </div>
             
           
             
         </div>
-        </div>
+        </div> -->
         
         
 
       </section>
 
-      <div class="col-md-4">
+      <div class="col-md-4" style="width: 24%;padding: 0;position: sticky;top: 0;overflow: auto;">
       <?php include_once"my-friend.php"; ?>
       <?php include_once"allmember.php"; ?>
       </div>
