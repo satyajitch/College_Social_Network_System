@@ -26,9 +26,9 @@
 														justify-content: space-between;
 														padding: 5px 15px;
 														}">
-				<div class="heading" style="font-size: 1.6rem;
+			<a href="members.php"> <div class="heading" style="font-size: 1.6rem;
 											color: #65676b;
-											letter-spacing: 0.51px;">All Members</div>
+											letter-spacing: 0.51px;">All Members</div></a>
 				<div class="options" style="color: #65676b;"><i class="fa-solid fa-ellipsis"></i></div>
 			  </div>
               <div class="panel-body" style="padding:0 15px">

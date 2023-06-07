@@ -355,7 +355,7 @@ window.onclick = function(event) {
                 $lname=$row1['lname'];
               }
               echo '<div class="user-logo">
-                      <img src="'.$profile.'" alt="" style="width: 100%;border-radius: 50%;">
+                      <img src="'.$profile.'" alt="" style="width: 100%;height:100%;border-radius: 50%;">
                     </div>
                     <div class="user-name">
                       '.$fname.' '.$lname.'
