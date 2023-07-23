@@ -13,7 +13,7 @@
       .nav-ul-items ul{
         display: flex;
         align-items: center;
-        list-style-type:none;
+        list-style-type: none;
       }
       .nav-ul-items ul li {
         padding: 0 30px;
